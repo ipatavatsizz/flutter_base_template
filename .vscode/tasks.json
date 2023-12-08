@@ -1,0 +1,124 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "description": "Enter Input Folder Location",
+      "id": "easy_localization_input_folder",
+      "type": "promptString",
+      "default": "assets/languages"
+    },
+    {
+      "description": "Enter Output Folder Location",
+      "id": "easy_localization_output_folder",
+      "type": "promptString",
+      "default": "lib/product/constant"
+    },
+    {
+      "description": "Select Format Type",
+      "default": "keys",
+      "id": "easy_localization_format_type",
+      "type": "pickString",
+      "options": [
+        { "label": "keys", "value": "keys" },
+        { "label": "json", "value": "json" }
+      ]
+    },
+    {
+      "description": "Enter Locale File Name",
+      "id": "easy_localization_locale_file",
+      "type": "promptString",
+      "default": "locale_keys.g.dart"
+    },
+    {
+      "description": "Enter (Root) Location",
+      "id": "keytool_keygen_keystore_location",
+      "type": "promptString",
+      "default": "\\android\\upload-keystore.jks"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Generate app icon",
+      "type": "shell",
+      "detail": "Generate app icon using flutter_launcher_icons",
+      "command": "dart run flutter_launcher_icons",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    },
+    {
+      "detail": "Generate localizations at assets/translations.",
+      "label": "Easy Localization",
+      "command": "dart run easy_localization:generate",
+      "type": "shell",
+      "args": [
+        "-S",
+        "${input:easy_localization_input_folder}",
+        "-f",
+        "${input:easy_localization_format_type}",
+        "-O",
+        "${input:easy_localization_output_folder}",
+        "-o",
+        "${input:easy_localization_locale_file}"
+      ],
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    },
+    {
+      "detail": "Run build_runner build.",
+      "label": "Build Runner - Build",
+      "command": "dart run build_runner build",
+      "type": "shell",
+      "args": ["--delete-conflicting-outputs"],
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    },
+    {
+      "detail": "Run build_runner watch.",
+      "label": "Build Runner - Watch",
+      "command": "dart run build_runner watch",
+      "type": "shell",
+      "args": ["--delete-conflicting-outputs"],
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    },
+    {
+      "detail": "Generate Sign Key using Keytool.",
+      "label": "Keytool -genkey",
+      "command": "keytool",
+      "type": "shell",
+      "args": [
+        "-genkey",
+        "-v",
+        "-keystore",
+        "${input:keytool_keygen_keystore_location}",
+        "-storetype",
+        "JKS",
+        "-keyalg",
+        "RSA",
+        "-keysize",
+        "2048",
+        "-validity",
+        "10000",
+        "-alias",
+        "upload"
+      ],
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": "build"
+    }
+  ]
+}

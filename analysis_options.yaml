@@ -1,0 +1,20 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    prefer_single_quotes: error
+    avoid_print: error
+    avoid_relative_lib_imports: error
+  exclude:
+    - "**/*.g.dart"
+
+linter:
+  rules:
+    always_use_package_imports: true
+    require_trailing_commas: true
+    avoid_print: true
+    avoid_relative_lib_imports: true
+    prefer_single_quotes: true
+    prefer_const_constructors: false # only dev
+    prefer_const_constructors_in_immutables: false # only dev
+    prefer_const_literals_to_create_immutables: false # only dev
