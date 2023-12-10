@@ -1,10 +1,10 @@
 name: flutter_base_template
-description: "A new Flutter project."
-publish_to: "none"
+description: 'A new Flutter Template project.'
+publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ">=3.2.2 <4.0.0"
+  sdk: '>=3.2.2 <4.0.0'
 
 dependencies:
   flutter:
@@ -16,9 +16,13 @@ dependencies:
   google_fonts: ^6.1.0
   animated_text_kit: ^4.2.2
   ionicons: ^0.2.2
+  # Alternative to ionicons: icons_plus (https://pub.dev/packages/icons_plus)
+  # icons_plus package contains Ionicons, Bootstrap, Flags and much more icons
   equatable: ^2.0.5
   recase: ^4.1.0
   country_flags: ^2.2.0
+  package_info_plus: ^5.0.1
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +35,17 @@ flutter:
   assets:
     - assets/
     - assets/languages/
+
+flutter_launcher_icons:
+  # Global/Package Side Settings
+  # https://pub.dev/packages/flutter_launcher_icons#mag-attributes
+  image_path: 'assets/images/app_icon.png'
+
+  # Android Side Settings
+  # https://pub.dev/packages/flutter_launcher_icons#android
+  android: true
+  min_sdk_android: 23 # template default, min 16, package default 21
+
+  # IOS Side Settings
+  # https://pub.dev/packages/flutter_launcher_icons#ios
+  ios: true
