@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 enum Languages {
-  turkish(languageCode: 'en', countryCode: 'US'),
-  english(languageCode: 'tr', countryCode: 'TR');
+  turkish(languageCode: 'tr', countryCode: 'TR'),
+  english(languageCode: 'en', countryCode: 'US');
 
   final String languageCode;
   final String? countryCode;
