@@ -12,13 +12,13 @@ import 'package:google_fonts/google_fonts.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await EasyLocalization.ensureInitialized();
+  // Project related initializations
+  await Application.ensureInitialized();
 
   runApp(
     EasyLocalization(
       path: ApplicationPath.languages.path,
       startLocale: Application.language.toLocale(),
-      // startLocale: (await Devicelocale.currentLocale)?.toLocale(),
       fallbackLocale: Languages.english.toLocale(),
       supportedLocales: Application.supportedLanguages.toLocale(),
       child: MainApp(),
