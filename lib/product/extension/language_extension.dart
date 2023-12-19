@@ -1,7 +1,14 @@
 import 'dart:ui';
 
-import 'package:flutter_base_template/product/enum/language_enums.dart';
+import 'package:dash_flags/dash_flags.dart';
 
-extension IterableLanguageExtensions on Iterable<Languages> {
+extension LanguageExtensions on Language {
+  Locale toLocale() => Locale.fromSubtags(
+        languageCode: name.split('_').first,
+        countryCode: name.split('_').lastOrNull?.toUpperCase(),
+      );
+}
+
+extension IterableLanguageExtensions on Iterable<Language> {
   List<Locale> toLocale() => map((e) => e.toLocale()).toList();
 }
