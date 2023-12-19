@@ -2,8 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_template/feature/home/home_view.dart';
 import 'package:flutter_base_template/product/core/application.dart';
-import 'package:flutter_base_template/product/enum/language_enums.dart';
 import 'package:flutter_base_template/product/extension/language_extension.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // https://colorhunt.co/palette/0926351b42425c83749ec8b9
@@ -19,9 +19,12 @@ Future<void> main() async {
     EasyLocalization(
       path: ApplicationPath.languages.path,
       startLocale: Application.language.toLocale(),
-      fallbackLocale: Languages.english.toLocale(),
+      fallbackLocale: Application.fallbackLanguage.toLocale(),
       supportedLocales: Application.supportedLanguages.toLocale(),
-      child: MainApp(),
+      child: MultiBlocProvider(
+        providers: [],
+        child: MainApp(),
+      ),
     ),
   );
 }
