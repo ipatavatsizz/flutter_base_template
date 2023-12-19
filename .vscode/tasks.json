@@ -44,7 +44,7 @@
       "command": "dart run flutter_launcher_icons",
       "problemMatcher": ["$tsc"],
       "presentation": {
-        "reveal": "always"
+        "reveal": "silent"
       },
       "group": "build"
     },
@@ -116,7 +116,7 @@
       ],
       "problemMatcher": ["$tsc"],
       "presentation": {
-        "reveal": "always"
+        "reveal": "silent"
       },
       "group": "build"
     }
