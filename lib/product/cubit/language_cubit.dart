@@ -1,13 +1,13 @@
+import 'package:dash_flags/dash_flags.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_base_template/product/core/application.dart';
-import 'package:flutter_base_template/product/enum/language_enums.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum LanguageCubitStatus { initial, loading, success, failure }
 
 class LanguageState with EquatableMixin {
   final LanguageCubitStatus status;
-  final Languages language;
+  final Language language;
 
   LanguageState({
     this.status = LanguageCubitStatus.initial,
@@ -16,7 +16,7 @@ class LanguageState with EquatableMixin {
 
   LanguageState copyWith({
     LanguageCubitStatus? status,
-    Languages? language,
+    Language? language,
   }) =>
       LanguageState(
         status: status ?? this.status,
@@ -30,6 +30,6 @@ class LanguageState with EquatableMixin {
 class LanguageCubit extends Cubit<LanguageState> {
   LanguageCubit() : super(LanguageState());
 
-  Future<void> changeLanguage(Languages language) async =>
+  Future<void> changeLanguage(Language language) async =>
       emit(state.copyWith(language: language));
 }
