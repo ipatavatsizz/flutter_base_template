@@ -1,15 +1,19 @@
+import 'package:dash_flags/dash_flags.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_base_template/product/enum/language_enums.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 /// Base class for application related settings
 class Application {
-  static const Languages language = Languages.turkish;
+  static const Language language = Language.tr;
+  static const Language fallbackLanguage = Language.en;
 
-  static const List<Languages> supportedLanguages = Languages.values;
+  static const List<Language> supportedLanguages = [
+    Language.en,
+    Language.tr,
+  ];
 
   static final GlobalKey<NavigatorState> navigation =
       GlobalKey<NavigatorState>();
