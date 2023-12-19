@@ -16,12 +16,11 @@ dependencies:
   google_fonts: ^6.1.0
   animated_text_kit: ^4.2.2
   ionicons: ^0.2.2
-  # Alternative to ionicons: icons_plus (https://pub.dev/packages/icons_plus)
-  # icons_plus package contains Ionicons, Bootstrap, Flags and much more icons
+  # Alternative to ionicons: icons_plus (https://pub.dev/packages/icons_plus) is offers much more icons all in one package
   equatable: ^2.0.5
   recase: ^4.1.0
-  country_flags: ^2.2.0
   package_info_plus: ^5.0.1
+  dash_flags: ^0.1.1
   flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
